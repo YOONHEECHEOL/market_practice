@@ -6,6 +6,8 @@
     <title>그랩마켓</title>
 
     <link rel="stylesheet" href="style.css" type="text/css">
+
+
 </head>
 <body>
 
@@ -22,29 +24,8 @@
         <h1>판매되는 상품들</h1>
         <div id="product-list">
 
-            <div class="product-card">
-                <div class="product-desc">
-                    <img src="./products/basketball1.jpeg" alt="" class="prodcut-img">
-                    <span class="product-name">농구공 1호</span>
-                    <span class="product-price">50000원</span>
-                    <div class="product-seller">
-                        <img src="./icons/avatar.png" alt="" class="product-avatar">
-                        <span>그랩</span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="product-card">
-                <div class="product-desc">
-                    <img src="./products/keyboard1.jpg" alt="" class="prodcut-img">
-                    <span class="product-name">키보드 1호</span>
-                    <span class="product-price">30000원</span>
-                    <div class="product-seller">
-                        <img src="./icons/avatar.png" alt="" class="product-avatar">
-                        <span>그랩</span>
-                    </div>
-                </div>
-            </div>
+
 
         </div>
     </div>
@@ -53,4 +34,50 @@
 
     </div>
 </body>
+
+<script>
+    var products = [
+        {
+            name : '농구공',
+            price : 100000,
+            seller : '조던',
+            imageurl : './products/basketball1.jpeg'
+        },
+        {
+            name : '축구공',
+            price : 50000,
+            seller : '메시',
+            imageurl : './products/soccerball1.jpg'
+        },
+        {
+            name : '키보드',
+            price : 70000,
+            seller : '빌 게이츠',
+            imageurl : './products/keyboard1.jpg'
+        }
+    ];
+
+    let productsHtml = '';
+    for(var i = 0;i < products.length;i++){
+        let product = products[i]
+        productsHtml = 
+        productsHtml +
+        '<div class="product-card">'+
+                '<div class="product-desc">'+
+                    '<img alt="" class="prodcut-img" src="'+product.imageurl+'">'+
+                    '<span class="product-name">'+ product.name +'</span>'+
+                    '<span class="product-price">'+ product.price+'</span>'+
+                    '<div class="product-seller">'+
+                        '<img src="./icons/avatar.png" alt="" class="product-avatar">'+
+                        '<span>'+product.seller+'</span>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
+    }
+
+
+
+            document.querySelector("#product-list").innerHTML = productsHtml;
+</script>
+
 </html>
